@@ -1,0 +1,428 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.login-register-bg {
+    background: url('/static/images/login_register.jpg') no-repeat center center fixed; /* Background image path */
+    background-size: cover;
+}
+
+.course-bg {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.course-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/courses.jpg') no-repeat center center fixed; /* Background image path */
+    background-size: cover;
+    opacity: 0.5; /* Adjust opacity as needed */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+.payment-bg {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.payment-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    background-size: cover;
+    opacity: 0.5; /* Adjust opacity as needed */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+.enroll-bg {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.enroll-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/enrollment.jpg') no-repeat center center fixed; /* Background image path */
+    background-size: cover;
+    opacity: 0.5; /* Adjust opacity as needed */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+.contact-bg {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.contact-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    background-size: cover;
+    opacity: 0.5; /* Adjust opacity as needed */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+.forum-bg {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+ 
+.forum-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/forum.jpg') no-repeat center center fixed; /* Background image path */
+    background-size: cover;
+    opacity: 0.5; /* Adjust opacity as needed */
+    z-index: -1; /* Ensure it is behind the content */
+}
+
+/* Reduce the size of the image slider */
+#collegeCarousel {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Highlight the text on the image slider */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.carousel-caption h3 {
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption p {
+    color: #f8f8f8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+/* Make the images in the slider rectangular */
+.carousel-inner .item img {
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+/* Profile Container */
+#profile-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Profile Link */
+#profile-link {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+/* Profile Picture */
+#profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+/* Profile Name */
+#profile-name {
+    font-weight: bold;
+    font-size: 14px;
+}   
+
+/* Profile Container */
+#profile-container {
+    display: inline-block;
+}
+
+/* Dropdown Menu */
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    min-width: 100px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Dropdown Links */
+#dropdown-menu a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+}
+
+/* Show Dropdown on Hover */
+#profile-container:hover #dropdown-menu {
+    display: block;
+}
+
+header {
+    background-color: #1a237e;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #283593;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    background-color: lightcyan;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto; /* Center the form vertically */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a237e;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 0.9em;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px;
+    background-color: #1a237e;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #283593;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+footer {
+    background-color: #1a237e;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Error Message Styles */
+.error-message {
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Required Field Styles */
+.required {
+    color: red;
+}
+
+/* Link Styles */
+a {
+    color: #1a237e;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for Courses Page */
+.tabs {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background-color: #1a237e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tab-button:hover {
+    background-color: #283593;
+    transform: scale(1.05);
+}
+
+#course-table {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #1a237e;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-media h2 {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    font-size: 2rem;
+    margin: 0 10px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff; /* Bootstrap primary color */
+}
