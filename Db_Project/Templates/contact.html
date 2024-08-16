@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block body_class %}contact-bg{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row">
+            <!-- Address Section -->
+            <div class="col-md-4 mb-4">
+                <div class="contact-section">
+                    <h2><i class="fas fa-map-marker-alt"></i> Location</h2>
+                    <p>123 Education Lane<br>Learning City, ED 45678</p>
+                </div>
+            </div>
+
+            <!-- Contact Numbers Section -->
+            <div class="col-md-4 mb-4">
+                <div class="contact-section">
+                    <h2><i class="fas fa-phone-alt"></i> Contact Numbers</h2>
+                    <p>Phone: (123) 456-7890<br>Fax: (098) 765-4321</p>
+                </div>
+            </div>
+
+            <!-- Email Section -->
+            <div class="col-md-4 mb-4">
+                <div class="contact-section">
+                    <h2><i class="fas fa-envelope"></i> Email</h2>
+                    <p>Email: info@educationwebsite.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hours of Operation Section -->
+        <div class="hours-section mt-4">
+            <h2><i class="fas fa-clock"></i> Hours of Operation</h2>
+            <p>MONDAY TO FRIDAY: 8:30am - 4:30pm</p>
+            <p>SATURDAY & SUNDAY - CLOSED</p>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="social-media mt-4">
+            <h2>Connect With Us</h2>
+            <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/yourhandle" target="_blank" class="social-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="btn btn-primary mt-4">Back</a>
+    </div>
+</main>
+{% endblock %}

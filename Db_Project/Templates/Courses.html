@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses{% endblock %}
+
+{% block body_class %}course-bg{% endblock %}
+
+{% block content %}
+    <div class="tabs">
+        <button class="tab-button btn btn-primary" data-type="Full-time Program">Full-time Programs</button>
+        <button class="tab-button btn btn-primary" data-type="International">Programs for International Students</button>
+        <button class="tab-button btn btn-primary" data-type="Graduate Certificate">Graduate Certificates</button>
+        <button class="tab-button btn btn-primary" data-type="Degree">Degrees</button>
+        <button class="tab-button btn btn-primary" data-type="Diploma to Degree Business Program">Diploma to Degree Business Programs</button>
+    </div>
+    <div id="course-table">
+        <!-- Courses will be loaded here -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="courseModalLabel">Course Details</h4>
+                </div>
+                <div class="modal-body"> 
+                    <p><strong>Description:</strong><span id="course-description"></span></p>
+                    <p><strong>Name:</strong> <span id="course-name"></span></p>
+                    <p><strong>Length of Program:</strong> <span id="course-length"></span></p>
+                    <p><strong>Type of Program:</strong> <span id="course-type"></span></p>
+                    <p><strong>Location:</strong> <span id="course-location"></span></p>
+                    <p><strong>Next Intake/Availability:</strong> <span id="course-intake"></span></p>
+                    <p><strong>International:</strong> <span id="course-international"></span></p>
+                    <p><strong>Course Fees:</strong> <span id="course-fees"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="register-button">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function () {
+                const programType = this.getAttribute('data-type');
+                fetch(`/courses/${programType}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const table = document.createElement('table');
+                        table.classList.add('table', 'table-striped');
+                        table.innerHTML = `
+                            <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Length of Program</th>
+                                    <th>Type of Program</th>
+                                    <th>Location</th>
+                                    <th>Next Intake/Availability</th>
+                                    <th>International</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${data.map(course => `
+                                    <tr data-id="${course.id}">
+                                        <td>${course.name}</td>
+                                        <td>${course.length_of_program}</td>
+                                        <td>${course.type_of_program}</td>
+                                        <td>${course.location}</td>
+                                        <td>${course.next_intake}</td>
+                                        <td>${course.international ? 'Yes' : 'No'}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        `;
+                        const courseTable = document.getElementById('course-table');
+                        courseTable.innerHTML = '';
+                        courseTable.appendChild(table);
+
+                        document.querySelectorAll('tbody tr').forEach(row => {
+                            row.addEventListener('click', function () {
+                                const courseId = this.getAttribute('data-id');
+                                fetch(`/course/${courseId}`)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        document.getElementById('course-description').innerText = data.course_description;
+                                        document.getElementById('course-name').innerText = data.name;
+                                        document.getElementById('course-length').innerText = data.length_of_program;
+                                        document.getElementById('course-type').innerText = data.type_of_program;
+                                        document.getElementById('course-location').innerText = data.location;
+                                        document.getElementById('course-intake').innerText = data.next_intake;
+                                        document.getElementById('course-international').innerText = data.international ? 'Yes' : 'No';
+                                        document.getElementById('course-fees').innerText = data.course_fees;
+                                        document.getElementById('register-button').setAttribute('data-id', courseId);
+                                        $('#courseModal').modal('show');
+                                    });
+                            });
+                        });
+                    });
+            });
+        });
+
+        document.getElementById('register-button').addEventListener('click', function () {
+        const courseId = this.getAttribute('data-id');
+        window.location.href = `/payment?course_id=${courseId}`;
+        });
+
+    </script>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body_class %}login-register-bg{% endblock %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Sign up</h2>
+        <form id="registerForm" method="post">
+            <div class="form-group">
+                <label for="firstname">Firstname: <span class="required">*</span></label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Lastname: <span class="required">*</span></label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email: <span class="required">*</span></label>
+                <input type="text" id="email" name="email" required>
+                <span id="emailError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact: <span class="required">*</span></label>
+                <input type="text" id="contact" name="contact" required>
+                <span id="contactError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="username">Username: <span class="required">*</span></label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password: <span class="required">*</span></label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password: <span class="required">*</span></label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+                <span id="passwordError" class="error-message"></span>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            const email = document.getElementById('email').value;
+            const contact = document.getElementById('contact').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                e.preventDefault();
+                document.getElementById('emailError').innerText = 'Invalid email address.';
+            } else {
+                document.getElementById('emailError').innerText = '';
+            }
+
+            // Contact validation
+            const contactPattern = /^[0-9]+$/;
+            if (!contactPattern.test(contact)) {
+                e.preventDefault();
+                document.getElementById('contactError').innerText = 'Contact must be a number.';
+            } else {
+                document.getElementById('contactError').innerText = '';
+            }
+
+            // Password match validation
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                document.getElementById('passwordError').innerText = 'Passwords do not match.';
+            } else {
+                document.getElementById('passwordError').innerText = '';
+            }
+        });
+    </script>
+{% endblock %}

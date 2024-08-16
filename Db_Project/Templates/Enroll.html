@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Enrollment Confirmation{% endblock %}
+
+{% block body_class %}enroll-bg{% endblock %}
+
+{% block content %}
+    <h2 style="font-weight: bold;">Enrollment Confirmation</h2>
+    <p style="font-weight: bold; font-size:large">Congratulations! You have successfully enrolled in the course: <strong>{{ course_name }}</strong>.</p>
+    <p style="font-weight: bold; font-size:large">Your enrollment details have been saved, and we will be in touch with further instructions.</p>
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Back</a>
+{% endblock %}
